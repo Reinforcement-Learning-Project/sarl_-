@@ -99,7 +99,7 @@ def main():
     #changes aashrith
     from stable_baselines3 import DDPG
     from stable_baselines3.common.noise import NormalActionNoise, OrnsteinUhlenbeckActionNoise
-    model=DDPG("MlpPolicy", env, action_noise=action_noise, verbose=1)
+    model=DDPG("MlpPolicy", env, verbose=1)
 
 
 
