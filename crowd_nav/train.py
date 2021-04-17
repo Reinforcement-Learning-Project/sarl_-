@@ -96,8 +96,16 @@ def main():
     checkpoint_interval = train_config.getint('train', 'checkpoint_interval')
 
     # configure trainer and explorer
+    #changes aashrith
+    from stable_baselines3 import DDPG
+    from stable_baselines3.common.noise import NormalActionNoise, OrnsteinUhlenbeckActionNoise
+    model=DDPG("MlpPolicy", env, action_noise=action_noise, verbose=1)
+
+
+
     memory = ReplayMemory(capacity)
-    model = policy.get_model()
+    #commented below
+    #model = policy.get_model()
     batch_size = train_config.getint('trainer', 'batch_size')
     trainer = Trainer(model, memory, device, batch_size)
     explorer = Explorer(env, robot, device, memory, policy.gamma, target_policy=policy)
