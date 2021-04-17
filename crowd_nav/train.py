@@ -109,7 +109,7 @@ def main():
     batch_size = train_config.getint('trainer', 'batch_size')
     trainer = Trainer(model, memory, device, batch_size)
     explorer = Explorer(env, robot, device, memory, policy.gamma, target_policy=policy)
-
+    print('model is initiated successfully')
     # imitation learning
     if args.resume:
         if not os.path.exists(rl_weight_file):
